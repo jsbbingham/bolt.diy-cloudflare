@@ -1,9 +1,0 @@
-# wrangler.toml — configuration for Cloudflare Pages
-
-name                    = "bolt-diy"                             # your Pages project slug
-account_id              = "b5d1065d53509de0f67f356ac80de9a9"
-compatibility_date      = "2025-04-24"
-type                    = "javascript"
-
-# → REQUIRED for Pages to know where your build output is:
-pages_build_output_dir  = "build"                                 # Remix’s default
