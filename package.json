@@ -17,9 +17,9 @@
     "dev": "pnpm install && pnpm run dev:bolt",
     "dev:bolt": "node pre-start.cjs && remix dev",
     "build": "remix build",
-    "preview": "pnpm run build && wrangler pages dev ./build --port 8788",
-    "start": "wrangler pages dev . --port 8788",
-    "deploy": "pnpm run build && wrangler pages publish ./build --project-name bolt-diy",
+    "preview": "pnpm run build && wrangler pages dev build --port 8788",
+    "start": "wrangler pages dev build --port 8788",
+    "deploy": "pnpm run build && wrangler pages publish build --project-name bolt-diy",
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "eslint . --ext .js,.ts,.jsx,.tsx --fix && prettier --write .",
     "typecheck": "tsc --noEmit",
@@ -30,7 +30,6 @@
   "engines": {
     "node": ">=18.17.1"
   },
-  "packageManager": "pnpm@9.4.0",
   "dependencies": {
     "@remix-run/cloudflare-pages": "^2.15.3",
     "@remix-run/react": "^2.15.3",
