@@ -1,11 +1,6 @@
-name = "bolt-diy"
+# wrangler.toml (for your SSR Worker only)
+name = "bolt-diy-worker"
+account_id = "b5d1065d53509de0f67f356ac80de9a9"
 compatibility_date = "2025-04-24"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = "./build/client"
-
-[build]
-  command = "npm ci && npm run build"
-  upload_format = "modules"
-
-[functions]
-  directory = "functions"
+type = "javascript"
