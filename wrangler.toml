@@ -1,11 +1,9 @@
-# wrangler.toml — for your Pages deploy
+# wrangler.toml — configuration for Cloudflare Pages
 
-name                     = "bolt-diy"                             # must match your Pages project name
-account_id               = "b5d1065d53509de0f67f356ac80de9a9"
-compatibility_date       = "2025-04-24"
-type                     = "javascript"
+name                    = "bolt-diy"                             # your Pages project slug
+account_id              = "b5d1065d53509de0f67f356ac80de9a9"
+compatibility_date      = "2025-04-24"
+type                    = "javascript"
 
-# ← THIS IS THE KEY LINE that Pages needs:
-pages_build_output_dir   = "build"                                 # where `remix build` writes your files
-
-# (no [build] table, no `functions` field—Pages only looks for pages_build_output_dir)
+# → REQUIRED for Pages to know where your build output is:
+pages_build_output_dir  = "build"                                 # Remix’s default
