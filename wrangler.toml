@@ -1,10 +1,11 @@
 name = "bolt-diy-cloudflare"
 compatibility_date = "2024-04-24"
+compatibility_flags = ["nodejs_compat"]
+
+# Where Pages will look for your built assets.
+# Remix’s `remix build` writes to "build", so point here.
+pages_build_output_dir = "build"
 
 [build]
-command = "pnpm install && pnpm run build"
-cwd = "."
-
-[site]
-bucket = "./dist"
-entry-point = "/"
+  # install & build in one command
+  command = "pnpm install && pnpm run build"
