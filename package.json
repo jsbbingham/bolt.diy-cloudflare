@@ -1,51 +1,59 @@
 {
-  "name": "bolt",
-  "version": "0.0.7",
-  "description": "An AI Agent",
-  "private": true,
-  "license": "MIT",
-  "type": "module",
-  "sideEffects": false,
-  "author": {
-    "name": "bolt.diy team",
-    "email": "maintainers@bolt.diy"
+  "name": "bolt.diy",
+  "version": "0.0.1",
+  "description": "AI-powered full-stack web development in the browser with multiple LLM support",
+  "homepage": "https://bolt-diy.pages.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stackblitz-labs/bolt.diy.git"
   },
-  "homepage": "https://bolt-diy.pages.dev",    // ← adjust to your actual Pages domain
+  "bugs": {
+    "url": "https://github.com/stackblitz-labs/bolt.diy/issues"
+  },
+  "license": "MIT",
+  "private": false,
+  "type": "module",
   "scripts": {
-    "build":   "remix build",
-    "clean":   "node scripts/clean.js",
-    "dev":     "node pre-start.cjs && remix dev",
-    "start":   "wrangler pages dev . --port 8788",
-    "deploy":  "npm run build && wrangler pages publish ./build --project-name bolt-diy",
-    "lint":    "eslint --cache --cache-location ./node_modules/.cache/eslint app",
-    "lint:fix":"npm run lint -- --fix && prettier --write app",
-    "prepare": "husky",
-    "test":    "vitest --run",
-    "test:watch":"vitest",
-    "typecheck":"tsc"
+    "dev": "pnpm install && pnpm run dev:bolt",
+    "dev:bolt": "node pre-start.cjs && remix dev",
+    "build": "remix build",
+    "preview": "pnpm run build && wrangler pages dev ./build --port 8788",
+    "start": "wrangler pages dev . --port 8788",
+    "deploy": "pnpm run build && wrangler pages publish ./build --project-name bolt-diy",
+    "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
+    "lint:fix": "eslint . --ext .js,.ts,.jsx,.tsx --fix && prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "prepare": "husky install"
   },
   "engines": {
     "node": ">=18.17.1"
   },
+  "packageManager": "pnpm@9.4.0",
   "dependencies": {
-    "@ai-sdk/amazon-bedrock": "1.0.6",
-    "@ai-sdk/anthropic": "0.0.39",
-    "@ai-sdk/cohere": "1.1.8",
-    /* …all your other runtime deps… */
-    "@remix-run/cloudflare-pages": "2.15.3",
-    "@remix-run/react":           "2.15.3",
-    "react":                      "18.3.1",
-    /* …etc… */
-    "zustand":                    "5.0.3"
+    "@remix-run/cloudflare-pages": "^2.15.3",
+    "@remix-run/react": "^2.15.3",
+    "@remix-run/node": "^2.15.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.3",
+    "ky": "^1.0.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^3.6.0",
+    "shiki": "^1.29.2"
   },
   "devDependencies": {
-    "@remix-run/dev":         "2.15.3",
-    "@remix-run/serve":       "2.15.3",
-    "@cloudflare/workers-types": "4.20250204.0",
-    "wrangler":               "3.108.0",
-    "eslint":                 "8.x",
-    "vitest":                 "2.x",
-    "typescript":             "5.7.3"
-    /* …all your other build-time deps… */
+    "@remix-run/dev": "^2.15.3",
+    "@cloudflare/workers-types": "^4.20250204.0",
+    "wrangler": "^3.108.0",
+    "typescript": "^5.7.3",
+    "eslint": "^8.33.0",
+    "prettier": "^3.2.5",
+    "vitest": "^2.1.9",
+    "husky": "^9.0.11",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
   }
 }
